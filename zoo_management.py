@@ -1,4 +1,5 @@
 class Animal:
+
     def __init__(self, name, age):
         self.name = name
         self.age = age
@@ -9,8 +10,10 @@ class Animal:
     def sleep(self):
         print(f"{self.name} спит")
 
+    def __str__(self):
+        return f"{self.name}, Возраст: {self.age}, Тип: {type(self).__name__}"
 
-# Подклассы Bird, Mammal, Reptile
+
 class Bird(Animal):
     def __init__(self, name, age, wing_span):
         super().__init__(name, age)
@@ -45,3 +48,19 @@ class Reptile(Animal):
 
     def sleep(self):
         print(f"{self.name} спит в тени")
+
+
+# Функция для полиморфизма
+def animal_sound(animals):
+    for animal in animals:
+        animal.make_sound()
+
+
+# Классы сотрудников
+class Employee:
+    def __init__(self, name, position):
+        self.name = name
+        self.position = position
+
+    def __str__(self):
+        return f"{self.name}, Позиция: {self.position}"
